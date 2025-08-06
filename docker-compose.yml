@@ -8,12 +8,13 @@ services:
     ports:
       - '80:3000'
     environment:
+      PORT: 3000
       PG_HOST: db
       PG_PORT: 5432
       PG_USER: postgres
       PG_PASSWORD: postgres
       PG_DB: nestdb
-      
+
       SECRET_KEY: MySecretKey
       SECRET_TIME: "15h"
 
