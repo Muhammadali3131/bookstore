@@ -8,7 +8,6 @@ services:
     ports:
       - '80:3000'
     environment:
-      PORT: 3000
       PG_HOST: db
       PG_PORT: 5432
       PG_USER: postgres
@@ -29,7 +28,7 @@ services:
       CUSTOMER_ACCESS_TOKEN_TIME: "15h"
       CUSTOMER_REFRESH_TOKEN_KEY: CustomerRefreshSecretKey
       CUSTOMER_REFRESH_TOKEN_TIME: "15d"
-
+      PORT: 3000
       COOKIE_TIME: 1296000000
       SMTP_HOST: smtp.gmail.com
       SMTP_PASSWORD: iwdaltamutwljddc
