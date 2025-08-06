@@ -33,7 +33,7 @@ services:
       SMTP_HOST: smtp.gmail.com
       SMTP_PASSWORD: iwdaltamutwljddc
       SMTP_PORT: 587
-      SMTP_USER: komilovmuhammadali3131@gmail.com
+      SMTP_USER: itsmetohir@gmail.com
     depends_on:
       - db
 
