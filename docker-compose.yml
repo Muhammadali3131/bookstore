@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: nest-app
+    restart: always
+    ports:
+      - '80:3000'
+    environment:
+      PG_HOST: db
+      PG_PORT: 5432
+      PG_USER: postgres
+      PG_PASSWORD: postgres
+      PG_DB: nestdb
+      
+      SECRET_KEY: MySecretKey
+      SECRET_TIME: "15h"
+
+      API_HOST: http://localhost:3000
+
+      WORKER_ACCESS_TOKEN_KEY: WorkerAccessSecretKey
+      WORKER_ACCESS_TOKEN_TIME: "15h"
+      WORKER_REFRESH_TOKEN_KEY: WorkerRefreshSecretKey
+      WORKER_REFRESH_TOKEN_TIME: "15d"
+
+      CUSTOMER_ACCESS_TOKEN_KEY: CustomerAccessSecretKey
+      CUSTOMER_ACCESS_TOKEN_TIME: "15h"
+      CUSTOMER_REFRESH_TOKEN_KEY: CustomerRefreshSecretKey
+      CUSTOMER_REFRESH_TOKEN_TIME: "15d"
+
+      COOKIE_TIME: 1296000000
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PASSWORD: iwdaltamutwljddc
+      SMTP_PORT: 587
+      SMTP_USER: komilovmuhammadali3131@gmail.com
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nestdb
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
