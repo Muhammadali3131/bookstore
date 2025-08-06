@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    image: muhammadali3131/bookstore:latest
     container_name: nest-app
     restart: always
     ports:
